@@ -1,0 +1,617 @@
+@praimery-color: #1e1e1e;
+@secondery-color: #027bff;
+@secondery-color-hovered: #0852a3;
+@text-color: #e0e0e0;
+@buttons-color1: #4caf50;
+@font-stack: Arial, sans-serif;
+@button-padding: 12px 25px;
+@radius: 8px;
+@input-color: #333333;
+@input-color2: #ffffff;
+@border-nav-color: #272727;
+@logout-color: #f44336;
+@nav-btn-color: #444444;
+@text-color-secondry: #096cdd;
+@card-color: #2a2a2a;
+@card-border-color: #7a7a7a;
+
+body {
+  background-color: @praimery-color;
+  color: @text-color;
+  margin: 0;
+  padding: 0;
+  font-family: @font-stack;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.pages {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+}
+
+.page1 {
+  margin-top: 0%;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+  margin-top: 50px;
+}
+
+.buttons button {
+  background-color: @buttons-color1;
+  padding: @button-padding;
+  border-radius: @radius;
+}
+
+.buttons button:hover {
+  background-color: #3d8c40;
+}
+
+// login page ********************
+
+.formdev {
+  width: 50%;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: @praimery-color;
+  color: @text-color;
+  border: solid 2px @text-color;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form label {
+  margin-bottom: 5px;
+}
+
+.form input {
+  margin-bottom: 10px;
+}
+
+.form {
+  button {
+    background-color: @buttons-color1;
+    border: none;
+    border-radius: @radius;
+    padding: @button-padding;
+  }
+}
+
+.form button:hover {
+  background-color: #3d8c40;
+}
+
+.form input {
+  background-color: @input-color;
+  padding: @button-padding;
+  border-radius: @radius;
+  border: none;
+}
+
+// admin page
+
+.adminpage {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    padding: 20px;
+    border-bottom: 4px @border-nav-color solid;
+    .adminName {
+      margin-right: 15px;
+      font-size: x-large;
+      display: flex;
+      align-items: center;
+    }
+    .logout-btn {
+      background-color: @logout-color;
+      padding: @button-padding;
+      border-radius: @radius;
+      color: @text-color;
+      font-weight: bold;
+    }
+  }
+  .main-container {
+    display: flex;
+    flex-direction: row;
+    padding-top: 10px;
+    border-top: 4px solid #151515;
+    height: 100%;
+    .main-navbar {
+      background-color: @border-nav-color;
+      width: 15%;
+      border-right: 2px solid @nav-btn-color;
+      ul {
+        list-style: none;
+        padding: 5px;
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        li {
+          text-align: center;
+          width: 100%;
+          .nav-btn {
+            width: 100%;
+            padding: @button-padding;
+            border-radius: @radius;
+            background-color: @nav-btn-color;
+            color: @text-color;
+            font-weight: bold;
+            border: none;
+            &:hover {
+              background-color: @secondery-color-hovered;
+            }
+            &.active {
+              background-color: @secondery-color !important;
+            }
+          }
+        }
+      }
+    }
+
+    .main-content {
+      padding: 20px;
+      width: 85%;
+      position: relative;
+      .adminOverView {
+        display: flex;
+        flex-direction: column;
+        .overview-head {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          h1 {
+            color: @text-color-secondry;
+          }
+        }
+        .overview-statistics-container {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-evenly;
+          flex-wrap: wrap;
+          .card {
+            padding: 5px;
+            background-color: @card-color;
+            border-radius: @radius;
+            flex: 1 1 15%;
+            margin: 10px;
+            text-align: center;
+
+            @media (max-width: 768px) {
+              flex: 1 1 25%; // For smaller screens, the cards will take up 45% of the container's width
+            }
+
+            @media (max-width: 480px) {
+              flex: 1 1 50%; // For very small screens, the cards will take up the full width
+            }
+          }
+        }
+        .title {
+          text-align: center;
+          font-size: large;
+          color: @text-color;
+        }
+        .overview-statistics-chart {
+          height: 420px;
+          .myChart {
+            width: 100% !important;
+          }
+        }
+      }
+
+      .projectsOverView {
+        display: flex;
+        flex-direction: column;
+        .projects-head {
+          h1 {
+            color: @text-color-secondry;
+          }
+          .projects-bar {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            button {
+              background-color: @secondery-color;
+              padding: @button-padding;
+              border: none;
+              border-radius: @radius;
+              color: @text-color;
+              font-weight: bold;
+              &:hover {
+                background-color: @secondery-color-hovered;
+              }
+            }
+            input {
+              width: 65%;
+              border: none;
+              border-radius: @radius;
+              background-color: @input-color2;
+              color: #9d9d9d;
+              padding-left: 8px;
+            }
+            select {
+              background-color: @input-color2;
+              padding: @button-padding;
+              border: none;
+              border-radius: @radius;
+              font-weight: bold;
+            }
+          }
+        }
+        .projects-cards-container {
+          padding-top: 15px;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+          justify-content: center;
+          .project-card {
+            padding: @button-padding;
+            background-color: @input-color;
+            flex: 1 1 250px;
+            max-width: 400px;
+            min-width: 200px;
+            transition: all 0.3s ease-in-out;
+            border: 2px solid @card-border-color;
+            border-radius: @radius;
+            .project-name {
+              color: @text-color-secondry;
+              font-weight: bold;
+            }
+            b {
+              color: #f5f5f5;
+            }
+            .currentProgress {
+              background-color: @secondery-color;
+              padding: @button-padding;
+              border: none;
+              border-radius: @radius;
+              text-align: center;
+              font-weight: bold;
+            }
+            .dates {
+              display: flex;
+              justify-content: space-between;
+            }
+          }
+          @media (max-width: 600px) {
+            .project-card {
+              flex: 1 1 100%; /* تجعل البطاقات تأخذ العرض الكامل */
+            }
+          }
+        }
+      }
+      .detailsContainer {
+        height: 100%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 25%;
+        background-color: @praimery-color;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+        z-index: 2;
+        overflow-y: auto;
+        padding: 10px 20px;
+        border: 2px solid @border-nav-color;
+        display: none;
+        .tittle {
+          font-weight: bold;
+          color: #00bcd4;
+          border-bottom: 1px solid @border-nav-color;
+          padding-bottom: 5px;
+        }
+        .tasks-container {
+          padding: 5px;
+          .task-card {
+            background-color: @input-color;
+            border-radius: @radius;
+            border: 2px solid #02796b;
+            padding: @button-padding;
+          }
+        }
+      }
+      .addProjectPage {
+        display: none;
+        margin: 20px 0px;
+        padding: 20px 20px 10px 20px;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: @praimery-color;
+        border: solid 2px @border-nav-color;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        width: 400px;
+        max-width: 90%;
+        z-index: 1;
+        height: 90%;
+        overflow-y: scroll;
+        .addprojecthead {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          h1 {
+            color: @text-color-secondry;
+            font-weight: bold;
+          }
+        }
+        .addprojectform {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          font-weight: bold;
+          font-size: large;
+          min-width: 300px;
+          max-width: 90%;
+          input,
+          textarea,
+          select {
+            width: 100%;
+            padding: @button-padding;
+            background-color: @input-color;
+            border-radius: @radius;
+            border: 1px solid @border-nav-color;
+            box-sizing: border-box;
+            color: @text-color;
+            font-weight: bold;
+          }
+          button {
+            border-radius: @radius;
+            padding: @button-padding;
+            background-color: @buttons-color1;
+            color: @text-color;
+            font-weight: bold;
+          }
+        }
+      }
+      .tasksPage {
+        display: flex;
+        flex-direction: column;
+
+        .tasksPageHead {
+          display: flex;
+          justify-content: space-between;
+
+          .sortBylabel {
+            color: @text-color;
+            font-weight: bold;
+
+            select {
+              background-color: #b5b5b4;
+              border-radius: @radius;
+              padding: 6px;
+              border: 1px solid @border-nav-color;
+            }
+          }
+
+          button {
+            border-radius: @radius;
+            padding: @button-padding;
+            background-color: @secondery-color;
+            color: @text-color;
+            font-weight: bold;
+          }
+        }
+
+        .tasksTable {
+          margin-top: 30px;
+          border-collapse: separate; /* جعل الجدول أكثر وضوحًا */
+          border-spacing: 0px 10px; /* إضافة مسافات بين الصفوف */
+          border: 2px solid @border-nav-color;
+          border-radius: @radius;
+          text-align: left;
+          box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px,
+            rgba(0, 0, 0, 0.23) 0px 3px 6px;
+          width: 100%; /* اجعل الجدول يأخذ كامل العرض */
+
+          th {
+            font-weight: bold; /* جعل النص عريض */
+            padding: 15px 20px; /* إضافة تباعد داخلي أكبر */
+            text-align: left;
+          }
+
+          td {
+            padding: 12px 20px; /* زيادة المسافة بين النص وحدود العمود */
+            font-size: 18px;
+            white-space: nowrap; /* يمنع كسر النص */
+          }
+
+          /* تحسين الجدول للأجهزة الصغيرة */
+          @media (max-width: 768px) {
+            th,
+            td {
+              padding: 10px 15px;
+              font-size: 14px;
+            }
+          }
+
+          @media (max-width: 480px) {
+            th,
+            td {
+              padding: 8px 12px;
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// extenral classes
+.status-in-progress {
+  color: #215884;
+}
+
+.status-completed {
+  color: #336135;
+}
+
+.status-on-hold {
+  color: #ad6c0b;
+}
+.status-pending {
+  color: #ad6c0b;
+}
+
+.status-cancelled {
+  color: rgb(216, 50, 50);
+}
+
+//  create task
+
+.createTaskPopupe {
+  display: none;
+  margin: 20px 0px;
+  padding: 20px 20px 10px 20px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: @praimery-color;
+  border: solid 2px @border-nav-color;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  width: 400px;
+  max-width: 90%;
+  z-index: 1;
+  height: 90%;
+  overflow-y: scroll;
+  .createTaskHead {
+    display: flex;
+    justify-content: space-between;
+    h1 {
+      color: @text-color-secondry;
+      font-weight: bold;
+    }
+  }
+  .addTaskForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-weight: bold;
+    font-size: large;
+    min-width: 300px;
+    max-width: 90%;
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: @button-padding;
+      background-color: @input-color;
+      border-radius: @radius;
+      border: 1px solid @border-nav-color;
+      box-sizing: border-box;
+      color: @text-color;
+      font-weight: bold;
+    }
+    button {
+      border-radius: @radius;
+      padding: @button-padding;
+      background-color: @buttons-color1;
+      color: @text-color;
+      font-weight: bold;
+    }
+  }
+}
+
+.chatpage {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  .listBox {
+    flex: 0 0 25%;
+
+    h2 {
+      color: @text-color;
+    }
+    .stu-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      span {
+        padding: @button-padding;
+        border-radius: @radius;
+        background-color: @nav-btn-color;
+      }
+    }
+  }
+  .chatBox {
+    flex: 0 0 65%;
+    background-color: @card-color;
+    border-radius: @radius;
+    border: 1px solid @card-border-color;
+    padding: 20px 10px;
+    .chatbox-head {
+      margin-bottom: 10px;
+    }
+    .chatBoxBody {
+      .massege {
+        margin: 10px 2px;
+        padding: @button-padding;
+        border-radius: @radius;
+        background-color: @buttons-color1;
+        text-align: right;
+      }
+    }
+    .chatBoxFooter {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      input {
+        padding: @button-padding;
+        border-radius: @radius;
+        border: 1px solid @card-border-color;
+        background-color: @input-color;
+        width: 75%;
+        color: @text-color;
+      }
+      button {
+        padding: @button-padding;
+        background-color: @buttons-color1;
+        border-radius: @radius;
+        color: @text-color;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .listBox {
+    flex: 0 0 20%;
+  }
+
+  .chatBox {
+    flex: 0 0 80%;
+  }
+}
+
+@media (max-width: 480px) {
+  .listBox {
+    flex: 0 0 40%;
+  }
+
+  .chatBox {
+    flex: 0 0 60%;
+  }
+}
